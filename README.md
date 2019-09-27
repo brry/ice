@@ -84,3 +84,7 @@ but please mention me as the original author.
 
 **Hire me** if you think I did a good job coding this. I’m freelancing,
 see [brry.github.io](https://brry.github.io)
+
+Feedback is welcome, of course. File an
+[issue](https://github.com/brry/ice/issues) or send an
+[email](mailto:berry-b@gmx.de) as you like.
