@@ -90,9 +90,13 @@ Check out the [source code](https://github.com/brry/ice/blob/master/README.Rmd) 
 
 ### caveats
 
-The data in the first years is not as complete as in later years (especially 2012 I was late to the party). 
+The data in the first years is not as complete as in later years (especially 2012 when I was late to the party). 
 With the increasing number of people in the mailing list, lag time decreased ^^. 
-Also, in 2019 we discovered a pond that freezes much earlier than the lakes we played on previously (again, see [bit.ly/eis_mt](https://bit.ly/eis_mt) for the locations).
+Also, in 2019 we discovered a pond that freezes much earlier than the lakes we played on previously (again, see [bit.ly/eis_mt](https://bit.ly/eis_mt) for the locations).  
+I did not play on all the days myself, but also recorded when other people from our mailing list were on.
+
+Locations are available in the dataset as well and reflect ice formation. 
+The ice on the shallow ponds is safe significantly earlier than on the deeper lakes.
 
 The 4 day model was found by comparing the correct classification rate (CCR) for several days and with several temperature comparisons.
 
