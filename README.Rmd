@@ -30,9 +30,9 @@ if(file.exists("kl.Rdata"))
   load("kl.Rdata") else
 {
 sun <- rdwd::selectDWD("Potsdam", res="daily",var="solar",per="")
-sun <- rdwd::dataDWD(sun)
+sun <- rdwd::dataDWD(sun, force=24)
 kl  <- rdwd::selectDWD("Potsdam", res="daily",var="kl",per="hr")
-kl  <- rdwd::dataDWD(kl)
+kl  <- rdwd::dataDWD(kl, force=24)
 kl <- do.call(rbind, kl) # historical and recent data
 kl <- kl[!duplicated(kl$MESS_DATUM),] # keep only hist for overlap
 kl$STATIONS_ID  <- NULL # remove unneeded columns
@@ -61,14 +61,21 @@ kl$frost <- sapply(1:nrow(kl), function(i) if(i-ntage < 1) FALSE else
 # Model vis ----
 source("icePlot.R")
 icePlot(kl$Tag, kl$EISHOCKEY, kl$frost, label_gof=TRUE)
-legend("right", c("Days on which we could play","Days with frost the previous 4 days"), 
+legend("bottomright", c("Days on which we could play","Days with frost the previous 4 days"), 
        pch=c("*","|"), col=c("blue","grey"), xpd=TRUE)
-
 ```
 
 This is good enough for me!
 I see some potentially missed chances in earlier years and the results of some aggressive advertising through our mailing list in the spirit of **"the ice shall hold!"** later on (we never broke through the ice).  
 So next time after two or three days of frost, I will be checking 10 different weather prognosis services - and yet probably be even more excited than I was in previous years.
+
+### vis
+Here are the playable days (<span style="color:blue">*</span>) along with temperature:
+```{r icevis, echo=FALSE, results="hide"}
+icePlot(kl$Tag, kl$EISHOCKEY, temp=kl$TMK.Lufttemperatur, label_gof=FALSE,
+        staroffset=0.2, main="Daily average temperature", addyears=0)
+```
+
 
 ### play
 
