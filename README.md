@@ -28,6 +28,23 @@ prediction correctness rate.
 For a simple (yet very effective) model, I looked whether the previous 4
 days all had a maximum temperature below zero.
 
+    ##  rdwd::dataDWD -> dirDWD: adding to directory 'C:/DWDdata'
+
+    ##  rdwd::dataDWD -> newFilename -> message: overwriting 1 file:
+    ## 'C:/DWDdata/daily_solar_tageswerte_ST_03987_row.zip'
+
+    ## Reading 1 file with readDWD.data() and fread=TRUE ...
+
+    ##  rdwd::dataDWD -> dirDWD: adding to directory 'C:/DWDdata'
+
+    ##  rdwd::dataDWD: 1 file already existing and not downloaded again:  'daily_kl_recent_tageswerte_KL_03987_akt.zip'
+    ## Now downloading 1 files...
+
+    ##  rdwd::dataDWD -> newFilename -> message: overwriting 1 file:
+    ## 'C:/DWDdata/daily_kl_historical_tageswerte_KL_03987_18930101_20211231_hist.zip'
+
+    ## Reading 2 files with readDWD.data() and fread=TRUE ...
+
 ![](README_files/figure-gfm/icemodel-1.png)<!-- -->
 
 This is good enough for me! I see some potentially missed chances in
