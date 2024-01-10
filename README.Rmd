@@ -20,8 +20,9 @@ Using [this R function](https://github.com/brry/ice/blob/master/icePlot.R), we c
 For a simple (yet very effective) model, I looked whether the previous 4 days all had a maximum temperature below zero.
 
 
-```{r icemodel, echo=FALSE, results="hide"}
+```{r icemodel, echo=FALSE, results="hide", message=FALSE}
 # playing days ----
+options(rdwdquiet=TRUE)
 eistage <- read.table("Eishockey_Tage.txt", stringsAsFactors=FALSE)
 eistage <- as.Date(eistage[,1])
 
@@ -32,13 +33,7 @@ if(file.exists("kl.Rdata"))
 sun <- rdwd::selectDWD("Potsdam", res="daily",var="solar",per="")
 sun <- rdwd::dataDWD(sun, force=24)
 kl  <- rdwd::selectDWD("Potsdam", res="daily",var="kl",per="hr")
-kl  <- rdwd::dataDWD(kl, force=24)
-kl <- do.call(rbind, kl) # historical and recent data
-kl <- kl[!duplicated(kl$MESS_DATUM),] # keep only hist for overlap
-kl$STATIONS_ID  <- NULL # remove unneeded columns
-kl$QN_3         <- NULL
-kl$QN_4         <- NULL
-kl$eor          <- NULL
+kl  <- rdwd::dataDWD(kl, force=24, hr=6)
 sun$STATIONS_ID <- NULL
 sun$QN_592      <- NULL
 sun$eor         <- NULL

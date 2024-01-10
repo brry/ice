@@ -1,7 +1,7 @@
 # Wann in Potsdam Eishockey gespielt werden konnte, siehe   bit.ly/eis_mt
 # K: Kindermannsee, haelt als erstes, seit 2019 in der Gruppe richtig bekannt
 # M: Maschinenteich
-# B: Krongut Bornstedt, nur 2012, Daten vorne unvollstaendig, wahrscheinlich schon frueher moeglich
+# B: Krongut Bornstedt, Daten vorne unvollstaendig, wahrscheinlich schon frueher moeglich
 # H: Heiliger See, ist am schoensten
 2012-02-06 B
 2012-02-07 B
@@ -106,3 +106,10 @@
 2022-12-18 B # bis 12 Uhr
 
 2023-02-09 K # gerade so
+
+2023-12-04 M # ziemlich unsicher
+2023-12-05 M # ziemlich unsicher
+
+2024-01-10 K # noch zu pruefen :)
+
+
