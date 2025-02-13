@@ -12,15 +12,7 @@ I told about my ice skating experience (as model verification) and he invited me
 Since then I've been logging the days we could play in [this file](https://github.com/brry/ice/blob/master/Eishockey_Tage.txt) *(rightclick on "Raw" -> "Save target as...")*.  
 
 
-### predictive modelling
-I'm always anxious about whether I get to play soon, so I wanted to create a computer model that predicts when the ice will hold.
-This should be mainly dependent on weather conditions and can be calibrated with the past playing dates.  
-With the [rdwd package](https://github.com/brry/rdwd#rdwd), we can easily get the weather data for the Potsdam climate station.
-Using [this R function](https://github.com/brry/ice/blob/master/icePlot.R), we can see the days on which the ice was strong enough to play and compute the prediction correctness rate.  
-For a simple (yet very effective) model, I looked whether the previous 4 days all had a maximum temperature below zero.
-
-
-```{r icemodel, echo=FALSE, results="hide", message=FALSE}
+```{r icedata, echo=FALSE, results="hide", message=FALSE}
 # playing days ----
 options(rdwdquiet=TRUE)
 eistage <- read.table("Eishockey_Tage.txt", stringsAsFactors=FALSE)
@@ -52,7 +44,26 @@ save(kl, file="kl.Rdata")
 ntage <- 4
 kl$frost <- sapply(1:nrow(kl), function(i) if(i-ntage < 1) FALSE else
                            all(kl[(i-ntage):(i-1), "TXK.Lufttemperatur_Max"]<0))
+```
 
+### vis
+
+Here are the playable days (<span style="color:blue">*</span>) along with temperature:
+```{r icevis, echo=FALSE, results="hide"}
+source("icePlot.R")
+icePlot(kl$Tag, kl$EISHOCKEY, temp=kl$TMK.Lufttemperatur, label_gof=FALSE,
+        staroffset=0.2, main="Daily average temperature", addyears=0)
+```
+
+### predictive modelling
+
+I'm always anxious about whether I get to play soon, so I wanted to create a computer model that predicts when the ice will hold.
+This should be mainly dependent on weather conditions and can be calibrated with the past playing dates.  
+With the [rdwd package](https://github.com/brry/rdwd#rdwd), we can easily get the weather data for the Potsdam climate station.
+Using [this R function](https://github.com/brry/ice/blob/master/icePlot.R), we can see the days on which the ice was strong enough to play and compute the prediction correctness rate.  
+For a simple (yet very effective) model, I looked whether the previous 4 days all had a maximum temperature below zero.
+
+```{r icemodel, echo=FALSE, results="hide", message=FALSE}
 # Model vis ----
 source("icePlot.R")
 icePlot(kl$Tag, kl$EISHOCKEY, kl$frost, label_gof=TRUE)
@@ -63,14 +74,6 @@ legend("bottomright", c("Days on which we could play","Days with frost the previ
 This is good enough for me!
 I see some potentially missed chances in earlier years and the results of some aggressive advertising through our mailing list in the spirit of **"the ice shall hold!"** later on (we never broke through the ice).  
 So next time after two or three days of frost, I will be checking 10 different weather prognosis services - and yet probably be even more excited than I was in previous years.
-
-### vis
-Here are the playable days (<span style="color:blue">*</span>) along with temperature:
-```{r icevis, echo=FALSE, results="hide"}
-icePlot(kl$Tag, kl$EISHOCKEY, temp=kl$TMK.Lufttemperatur, label_gof=FALSE,
-        staroffset=0.2, main="Daily average temperature", addyears=0)
-```
-
 
 ### play
 

@@ -14,6 +14,11 @@ Since then I’ve been logging the days we could play in [this
 file](https://github.com/brry/ice/blob/master/Eishockey_Tage.txt)
 *(rightclick on “Raw” -\> “Save target as…”)*.
 
+### vis
+
+Here are the playable days (<span style="color:blue">\*</span>) along
+with temperature: ![](README_files/figure-gfm/icevis-1.png)<!-- -->
+
 ### predictive modelling
 
 I’m always anxious about whether I get to play soon, so I wanted to
@@ -37,11 +42,6 @@ never broke through the ice).
 So next time after two or three days of frost, I will be checking 10
 different weather prognosis services - and yet probably be even more
 excited than I was in previous years.
-
-### vis
-
-Here are the playable days (<span style="color:blue">\*</span>) along
-with temperature: ![](README_files/figure-gfm/icevis-1.png)<!-- -->
 
 ### play
 
