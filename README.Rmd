@@ -52,7 +52,7 @@ Here are the playable days (<span style="color:blue">*</span>) along with temper
 ```{r icevis, echo=FALSE, results="hide"}
 source("icePlot.R")
 icePlot(kl$Tag, kl$EISHOCKEY, temp=kl$TMK.Lufttemperatur, label_gof=FALSE,
-        staroffset=0.2, main="Daily average temperature", addyears=1)
+        staroffset=0.2, main="Daily average temperature", addyears=0)
 ```
 
 ### predictive modelling
