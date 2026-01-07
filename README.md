@@ -48,6 +48,11 @@ excited than I was in previous years.
 You live near Potsdam and want to join? You can! Very much so!  
 Subscribe to the mailing list at [bit.ly/eis_mt](https://bit.ly/eis_mt).
 
+*Note: the mailing list is currently broken.* We have a [WhatsApp group
+for Potsdam](https://chat.whatsapp.com/Fr7jS8lyqk2HEartrjN4nJ) and a
+[WhatsApp community for Brandenburg
+adH](https://chat.whatsapp.com/GNZhYHLWmNy90Ij2rRIrJA).
+
 ### code
 
 If you want to create a (better) prediction model, this code might be a
