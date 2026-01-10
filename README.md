@@ -16,8 +16,8 @@ file](https://github.com/brry/ice/blob/master/Eishockey_Tage.txt)
 
 ### vis
 
-Here are the playable days (<span style="color:blue">\*</span>) along
-with temperature: ![](README_files/figure-gfm/icevis-1.png)<!-- -->
+Here are the playable days along with temperature:
+![](README_files/figure-gfm/icevis-1.png)<!-- -->
 
 ### predictive modelling
 

@@ -48,11 +48,22 @@ kl$frost <- sapply(1:nrow(kl), function(i) if(i-ntage < 1) FALSE else
 
 ### vis
 
-Here are the playable days (<span style="color:blue">*</span>) along with temperature:
+Here are the playable days along with temperature:
 ```{r icevis, echo=FALSE, results="hide"}
 source("icePlot.R")
 icePlot(kl$Tag, kl$EISHOCKEY, temp=kl$TMK.Lufttemperatur, label_gof=FALSE,
-        staroffset=0.2, main="Daily average temperature", addyears=0)
+        staroffset=0.2, main="", addyears=0)
+at <- par("usr")[1]+10
+main <- function(txt, col=1)
+  {
+  mtext(txt, side=3, line=2.5, at=at, col=col, cex=1, adj=0)
+  at <<- at + strwidth(txt, cex=1)
+  }
+main("|", col="grey")
+main("|", col="red")
+main(": Potsdam Tagesmitteltemperatur und ")
+main("*", col="blue")
+main(": Eishockey Spieltage")
 ```
 
 ### predictive modelling
