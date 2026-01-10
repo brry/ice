@@ -1,9 +1,12 @@
-# Wann in Potsdam Eishockey gespielt werden konnte, siehe   bit.ly/eis_mt
+# Wann in Potsdam Eishockey gespielt werden konnte
+# Datensammlung von Berry Boessenkool
+# Wir spielen meist schon nach 3-4 Tagen Frost :)
 # K: Kindermannsee, haelt als erstes, seit 2019 in der Gruppe richtig bekannt
-# M: Maschinenteich
-# B: Krongut Bornstedt, Daten vorne unvollstaendig, wahrscheinlich schon frueher moeglich
-# H: Heiliger See, ist am schoensten
-2012-02-06 B
+# M: Maschinenteich, seit CoViD zunehmend von Parkwaechtern verteidigt
+# B: Bornstedterseee am Krongut, sehr nice, braucht aber mehr Frost
+# H: Heiliger See, am schoensten, manchmal von der Feuerwehr verteidigt
+
+2012-02-06 B # zuerst kennen gelernt, wohl schon früher möglich gewesen
 2012-02-07 B
 2012-02-08 B
 2012-02-09 B
