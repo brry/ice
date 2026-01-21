@@ -2,6 +2,8 @@
 title: "Eishockey Potsdam"
 format: html
 embed-resources: true
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r icedata, echo=FALSE, results="hide", message=FALSE}
@@ -68,7 +70,7 @@ Zur Absprache, wann und wo wir spielen, nutzen wir:
 - [WhatsApp Gruppe für Potsdam](https://chat.whatsapp.com/Fr7jS8lyqk2HEartrjN4nJ) 
 - [WhatsApp Community für Brandenburg adH](https://chat.whatsapp.com/GNZhYHLWmNy90Ij2rRIrJA)
 - [Mailman Emailverteiler](https://bit.ly/eis_mt) (derzeit defekt)
-- [Google group Emailverteiler](https://groups.google.com/g/eishockey-potsdam/about)
+- [Google group Emailverteiler](https://groups.google.com/g/eishockey-potsdam/about) (einloggen um oben Beitrittsanfrage zu stellen)
 
 Wir spielen als Amateure ohne Schutzausrüstung und halten **Schläger und Puck unten**.  
 In all den Jahren gab es nur eine Verletzung, die genäht werden musste - und eingebrochen sind wir nie.
@@ -101,3 +103,69 @@ Alles ist unter GPL3 lizenziert (Verbreiten und Bearbeiten erwünscht, bitte die
 Feedback ist sehr willkommen als [Issue](https://github.com/brry/ice/issues) oder [E-Mail](mailto:berry-b@gmx.de).
 
 Gut programmiert? Ich bin freiberuflich buchbar, siehe [brry.github.io](https://brry.github.io).
+
+
+## Experimentelle Grafiken
+
+Klimawandel:
+
+```{r climate_data}
+options(rdwdquiet=TRUE)
+kl  <- rdwd::selectDWD("Potsdam", res="daily", var="kl", per="hr")
+kl  <- rdwd::dataDWD(kl, force=24, hr=6, varnames=TRUE)
+kl2 <- kl[kl$MESS_DATUM>as.Date("2011-10-01"),]
+kl2 <- kl2[as.numeric(format(kl2$MESS_DATUM,"%m")) %in% c(12,1:3),]
+
+```
+
+```{r climate_vis, fig.height=9}
+minyear <- 1893
+maxyear <- as.numeric(format(Sys.Date()+40,"%Y")) # +40 for december
+par(mar=c(2, 0.5, 2, 3.5))
+plot(as.Date("2016-01-01")+c(-30,90), c(1,1), type="n", ylim=c(maxyear, minyear), axes=FALSE, ann=FALSE)
+box()
+berryFunctions::monthAxis(mlabels=month.abb, yformat=" ", quiet=TRUE, 
+                          ytcl=par("tcl"), mcex=1, mline=-0.5)
+axis(4, minyear:maxyear, las=1, mgp=c(3,0.7,0))
+add_doys(kl$MESS_DATUM, values=kl$TMK.Lufttemperatur)
+```
+
+Eine größere zeitliche Auflösung ist verfügbar, aber grafisch weniger verdaulich:
+
+```{r hourly_data, echo=FALSE, results="hide", cache=TRUE}
+options(rdwdquiet=TRUE)
+lt  <- rdwd::selectDWD("Potsdam", res="hourly", var="air_temperature", per="hr")
+lt  <- rdwd::dataDWD(lt, force=c(30*24, 6), hr=6, varnames=TRUE)
+lt <- lt[c(1,3)]
+colnames(lt) <- c("Zeit", "Temp")
+
+eistage2 <- read.table("Eishockey_Tage.txt", stringsAsFactors=FALSE)
+eistage2 <- as.POSIXct(eistage2[,1])
+```
+
+```{r hourly_vis, echo=FALSE, results="hide", fig.height=9}
+thisyear <- as.numeric(format(Sys.Date(),"%Y"))
+
+winter <- function(y)
+{
+x1 <- as.POSIXct(paste0(y-1,"-12-01 00:00:00"))
+x2 <- as.POSIXct(paste0(  y,"-04-01 00:00:00"))
+sel <- lt$Zeit > (x1-3600*24*2) & lt$Zeit < (x2+600*24*2)
+x <- lt$Zeit[sel]
+v <- lt$Temp[sel]
+n <- sum(sel)
+plot(x, v, type="n", xlim=c(x1,x2), ylim=c(-10,10), xaxs="i", axes=FALSE, ann=FALSE)
+segments(x[-n], v[-n], x[-1], v[-1], 
+         col=ifelse(v[-1]>0|v[-n]>0,"grey","red"), xpd=NA)
+abline(h=0, col=8)
+axis(4, 0, y, las=1)
+points(data.frame(eistage2, 2), col="blue", pch="*", cex=2)
+if(y==thisyear)
+  berryFunctions::monthAxis(mlabels=month.abb, yformat=" ", quiet=TRUE, 
+                            ytcl=par("tcl"), mcex=1, mline=-0.5)
+}
+
+par(mfrow=c(thisyear-2011,1), oma=c(2,0,2,0), mar=c(0,0.5,0,3.5))
+for(y in 2012:thisyear) winter(y)
+```
+
