@@ -109,28 +109,24 @@ Gut programmiert? Ich bin freiberuflich buchbar, siehe [brry.github.io](https://
 
 Klimawandel:
 
-```{r climate_data}
+```{r climate_data, echo=FALSE}
 options(rdwdquiet=TRUE)
 kl  <- rdwd::selectDWD("Potsdam", res="daily", var="kl", per="hr")
 kl  <- rdwd::dataDWD(kl, force=24, hr=6, varnames=TRUE)
-kl2 <- kl[kl$MESS_DATUM>as.Date("2011-10-01"),]
-kl2 <- kl2[as.numeric(format(kl2$MESS_DATUM,"%m")) %in% c(12,1:3),]
-
 ```
 
-```{r climate_vis, fig.height=9}
-minyear <- 1893
-maxyear <- as.numeric(format(Sys.Date()+40,"%Y")) # +40 for december
-par(mar=c(2, 0.5, 2, 3.5))
-plot(as.Date("2016-01-01")+c(-30,90), c(1,1), type="n", ylim=c(maxyear, minyear), axes=FALSE, ann=FALSE)
-box()
-berryFunctions::monthAxis(mlabels=month.abb, yformat=" ", quiet=TRUE, 
-                          ytcl=par("tcl"), mcex=1, mline=-0.5)
-axis(4, minyear:maxyear, las=1, mgp=c(3,0.7,0))
-add_doys(kl$MESS_DATUM, values=kl$TMK.Lufttemperatur)
+```{r climate_vis, echo=FALSE}
+nmin <- tapply(kl$TMK.Lufttemperatur, format(kl$MESS_DATUM, "%Y"), function(x) sum(x<0))
+nmin <- nmin[-length(nmin)] # exclude current year
+par(mar=c(2,2,2,0.5), mgp=c(3,0.7,0), las=1)
+plot(as.numeric(names(nmin)), nmin, type="l", 
+     main="Anzahl Frosttage in Potsdam pro Kalenderjahr", lwd=1,
+     panel.first=abline(v=seq(1880,2040,by=5), col=c("grey40","grey80"))
+    )
+berryFunctions::movAvLines(as.numeric(names(nmin)), nmin, widths=11, alpha=1, lwd=3)
 ```
 
-Eine größere zeitliche Auflösung ist verfügbar, aber grafisch weniger verdaulich:
+Eine größere zeitliche Auflösung der ersten Grafik ist verfügbar, aber grafisch weniger verdaulich:
 
 ```{r hourly_data, echo=FALSE, results="hide", cache=TRUE}
 options(rdwdquiet=TRUE)
@@ -149,7 +145,7 @@ thisyear <- as.numeric(format(Sys.Date(),"%Y"))
 winter <- function(y)
 {
 x1 <- as.POSIXct(paste0(y-1,"-12-01 00:00:00"))
-x2 <- as.POSIXct(paste0(  y,"-04-01 00:00:00"))
+x2 <- as.POSIXct(paste0(  y,"-04-01 12:00:00"))
 sel <- lt$Zeit > (x1-3600*24*2) & lt$Zeit < (x2+600*24*2)
 x <- lt$Zeit[sel]
 v <- lt$Temp[sel]
