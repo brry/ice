@@ -6,6 +6,13 @@ editor_options:
   chunk_output_type: console
 ---
 
+```{r, caching, include=FALSE}
+# some chunks below are cached for faster compilation
+knitr::opts_chunk$set(cache.extra = Sys.Date())
+# cache.extra: whenever that value changes, the cache is invalidated
+# this way, multiple compilation runs are fast, but the data is updated daily.
+```
+
 ```{r icedata, echo=FALSE, results="hide", message=FALSE}
 # playing days ----
 options(rdwdquiet=TRUE)
@@ -109,13 +116,13 @@ Gut programmiert? Ich bin freiberuflich buchbar, siehe [brry.github.io](https://
 
 Klimawandel:
 
-```{r climate_data, echo=FALSE}
+```{r climate_data, echo=FALSE, cache=TRUE}
 options(rdwdquiet=TRUE)
 kl  <- rdwd::selectDWD("Potsdam", res="daily", var="kl", per="hr")
 kl  <- rdwd::dataDWD(kl, force=24, hr=6, varnames=TRUE)
 ```
 
-```{r climate_vis, echo=FALSE}
+```{r climate_vis, echo=FALSE, cache=TRUE}
 nmin <- tapply(kl$TMK.Lufttemperatur, format(kl$MESS_DATUM, "%Y"), function(x) sum(x<0))
 nmin <- nmin[-length(nmin)] # exclude current year
 par(mar=c(2,2,2,0.5), mgp=c(3,0.7,0), las=1)
@@ -139,7 +146,7 @@ eistage2 <- read.table("Eishockey_Tage.txt", stringsAsFactors=FALSE)
 eistage2 <- as.POSIXct(eistage2[,1])
 ```
 
-```{r hourly_vis, echo=FALSE, results="hide", fig.height=9}
+```{r hourly_vis, echo=FALSE, results="hide", fig.height=9, cache=TRUE}
 thisyear <- as.numeric(format(Sys.Date(),"%Y"))
 
 winter <- function(y)
