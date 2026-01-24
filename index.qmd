@@ -76,8 +76,7 @@ Zur Absprache, wann und wo wir spielen, nutzen wir:
 
 - [WhatsApp Gruppe für Potsdam](https://chat.whatsapp.com/Fr7jS8lyqk2HEartrjN4nJ) 
 - [WhatsApp Community für Brandenburg adH](https://chat.whatsapp.com/GNZhYHLWmNy90Ij2rRIrJA)
-- [Mailman Emailverteiler](http://lists.astaup.de/listinfo/eishockeysanssouci) (derzeit defekt)
-- [Google group Emailverteiler](https://groups.google.com/g/eishockey-potsdam/about) wird gerade ersetzt mit:
+- [Mailman Emailverteiler](http://lists.astaup.de/listinfo/eishockeysanssouci) defekt, wird gerade ersetzt mit:
 - [UP Emailverteiler](mailto:eis-list@uni-potsdam.de) (sende Email mit Betreff subscribe an [eis-list-join@uni-potsdam.de](mailto:eis-list-join@uni-potsdam.de?subject=subscribe))
 
 Wir spielen als Amateure ohne Schutzausrüstung und halten **Schläger und Puck unten**.  
@@ -101,9 +100,9 @@ Wer kostengünstig gebrauchte Schlittschuhe sucht, findet diese ggf. in Soziall�
 Mein Eishockey-leben begann 2012 im Kurs von Till Francke über numerische Modellierung, als wir die Eisdicke berechneten.
 Ich erzählte von meinen Erfahrungen mit Eislaufen (als Modellverifizierung) und er lud mich zum Spielen ein.  
 Nach 5 Minuten war ich ein Fan fürs Leben und seitdem habe ich die Tage protokolliert, an denen wir spielen konnten.  
-Die Daten der ersten Jahre sind nicht so vollständig wie in späteren Jahren (insbesondere 2012). 
+Die Daten der ersten Jahre (insbesondere 2012) sind nicht so vollständig wie in späteren Jahren. 
 Mit der steigenden Anzahl von Personen in der Mailingliste waren wir immer früher draußen ^^.  
-Ich habe nicht an allen Tagen selbst gespielt, sondern auch aufgezeichnet, wann andere Personen aus unserer Mailingliste dabei waren.
+Ich habe nicht an allen Tagen selbst gespielt, sondern auch aufgezeichnet, wann andere Personen aus unserer Runde dabei waren.
 
 Wann und wo wir in der Vergangenheit gespielt haben, ist [hier](https://github.com/brry/ice/blob/master/Eishockey_Tage.txt) gelistet *(Rechtsklick auf "Raw" -> "Ziel speichern unter")*.  
 Der R code für diese Seite (inkl. Wetterdaten und Grafik) ist [hier](https://github.com/brry/ice/blob/master/index.qmd)  einsehbar.  
