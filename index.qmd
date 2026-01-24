@@ -46,7 +46,7 @@ add_doys <- function(dates, offset=0, values=NULL, ...)
 minyear <- 2011
 maxyear <- as.numeric(format(Sys.Date()+40,"%Y")) # +40 for december
 par(mar=c(2, 0.5, 2, 3.5))
-plot(as.Date("2016-01-01")+c(-30,90), c(1,1), type="n", ylim=c(maxyear, minyear), axes=FALSE, ann=FALSE)
+plot(as.Date("2016-01-01")+c(-30,90), c(1,1), type="n", ylim=c(maxyear, minyear+0.7), axes=FALSE, ann=FALSE)
 box()
 berryFunctions::monthAxis(mlabels=month.abb, yformat=" ", quiet=TRUE, 
                           ytcl=par("tcl"), mcex=1, mline=-0.5)
@@ -92,7 +92,7 @@ In all den Jahren gab es nur eine Verletzung, die genäht werden musste - und ei
 
 ## Ausrüstung
 
-Ich (Berry) habe immer 5 Schläger, Schneeschieber, Laibchen und Tore dabei. Auch andere bringen zusätzliche Sachen mit oder haben Schlittschuhe zu verleihen.
+Ich (Berry) habe immer 5 Schläger, Schneeschieber, Teamleibchen und Tore dabei. Auch andere bringen zusätzliche Sachen mit oder haben Schlittschuhe zu verleihen. Ich habe derzeit extra: 2 Schittschuhsets zum unter-die-Schuhe binden sowie die Größen 37-40 (justierbar), 38.5, 41, 42, 44.
 
 Wer kostengünstig gebrauchte Schlittschuhe sucht, findet diese ggf. in Sozialläden wie Exvoto Bornim oder Rückenwind am Stern.
 
