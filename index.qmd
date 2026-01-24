@@ -76,8 +76,9 @@ Zur Absprache, wann und wo wir spielen, nutzen wir:
 
 - [WhatsApp Gruppe für Potsdam](https://chat.whatsapp.com/Fr7jS8lyqk2HEartrjN4nJ) 
 - [WhatsApp Community für Brandenburg adH](https://chat.whatsapp.com/GNZhYHLWmNy90Ij2rRIrJA)
-- [Mailman Emailverteiler](https://bit.ly/eis_mt) (derzeit defekt)
-- [Google group Emailverteiler](https://groups.google.com/g/eishockey-potsdam/about) (einloggen um oben Beitrittsanfrage zu stellen)
+- [Mailman Emailverteiler](http://lists.astaup.de/listinfo/eishockeysanssouci) (derzeit defekt)
+- [Google group Emailverteiler](https://groups.google.com/g/eishockey-potsdam/about) wird gerade ersetzt mit:
+- [UP Emailverteiler](mailto:eis-list@uni-potsdam.de) (sende Email mit Betreff subscribe an [eis-list-join@uni-potsdam.de](mailto:eis-list-join@uni-potsdam.de?subject=subscribe))
 
 Wir spielen als Amateure ohne Schutzausrüstung und halten **Schläger und Puck unten**.  
 In all den Jahren gab es nur eine Verletzung, die genäht werden musste - und eingebrochen sind wir nie.
