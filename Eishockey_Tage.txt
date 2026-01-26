@@ -141,4 +141,5 @@
 2026-01-23 B
 2026-01-24 B
 2026-01-25 H
+2026-01-26 H # schon viel Slush Eis drauf
 
