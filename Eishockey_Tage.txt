@@ -143,3 +143,6 @@
 2026-01-25 H
 2026-01-26 H # schon viel Slush Eis drauf
 
+2026-01-31 H # Feld vom Montag, wäre gestern wohl auch gegangen
+2026-02-01 H
+
