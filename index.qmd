@@ -83,10 +83,11 @@ In all den Jahren gab es nur eine Verletzung, die genäht werden musste - und ei
 
 ## Spielorte
 
-- [52°23'58"N, 13°04'56"E](https://goo.gl/maps/wu6SH7YjWJT2): Kindermannsee im Park Babelsberg (hält schon früh)
-- [52°23'44"N, 13°01'42"E](https://goo.gl/maps/eEgf5tgbY6x): Maschinenteich im Park Sanssouci (Parkwächter)
-- [52°24'31"N, 13°01'58"E](https://goo.gl/maps/QxkWJrL7SVEUQt4a8): Bornstedter See (sehr nice)
-- [52°24'45"N, 13°04'16"E](https://goo.gl/maps/2pR61wq1ogp): Heiliger See vor dem Marmorpalais (selten zugefroren)
+- [Kindermannsee](https://maps.app.goo.gl/M44R2Vkqe9215bVFA) im Park Babelsberg (hält schon früh)
+- [Maschinenteich](https://maps.app.goo.gl/6kfiA2UU5YjYn7oh9) im Park Sanssouci (Parkwächter)
+- [Bornstedter See](https://maps.app.goo.gl/zEiQNKmm9dEsGst78) (sehr nice)
+- [Heiliger See](https://maps.app.goo.gl/hAP5ezWwnmMJtP2aA) vor dem Marmorpalais (selten zugefroren)
+- [Baggersee](https://maps.app.goo.gl/FUDTQgXTaJv4HUoq6) am Stern (zukünftig mehr Nutzung, da ich da jetzt wohne)
 
 ```{r, map, echo=FALSE, fig.height=3}
 suppressWarnings(library(leaflet))
@@ -98,8 +99,12 @@ coords <- read.table(sep=",", text="
   52.411793, 13.032002, red , Parkplatz
   52.409440, 13.028706, red , Parkplatz
   52.395556, 13.028333, blue, Maschinenteich
+  52.394642, 13.031707, red , Parkplatz
   52.412500, 13.071111, blue, Heiliger See
   52.410410, 13.073171, red , Parkplatz
+  52.374649, 13.118457, blue, Baggersee
+  52.375172, 13.122187, red , Parkplatz
+  52.393792, 13.132278, blue, HPI Teich
 ", header = TRUE)
 
 leaflet(coords) %>%
