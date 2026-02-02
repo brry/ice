@@ -88,6 +88,25 @@ In all den Jahren gab es nur eine Verletzung, die genäht werden musste - und ei
 - [52°24'31"N, 13°01'58"E](https://goo.gl/maps/QxkWJrL7SVEUQt4a8): Bornstedter See (sehr nice)
 - [52°24'45"N, 13°04'16"E](https://goo.gl/maps/2pR61wq1ogp): Heiliger See vor dem Marmorpalais (selten zugefroren)
 
+```{r, map, echo=FALSE, fig.height=3}
+suppressWarnings(library(leaflet))
+coords <- read.table(sep=",", text="
+  lat      , lng      , col, name
+  52.399444, 13.082222, blue, Kindermannsee
+  52.396857, 13.083819, red , Parkplatz
+  52.408611, 13.032778, blue, Bornstedter See
+  52.411793, 13.032002, red , Parkplatz
+  52.409440, 13.028706, red , Parkplatz
+  52.395556, 13.028333, blue, Maschinenteich
+  52.412500, 13.071111, blue, Heiliger See
+  52.410410, 13.073171, red , Parkplatz
+", header = TRUE)
+
+leaflet(coords) %>%
+  addTiles() %>%
+  addCircleMarkers(~lng, ~lat, popup=~name, color=~col)
+```
+
 ## Ausrüstung
 
 Ich (Berry) habe immer 5 Schläger, Schneeschieber, Teamleibchen, Pucks und Tore dabei. Schläger sind oft Mangelware, also gerne auch mehrere mitbringen, wenn du hast.  
