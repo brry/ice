@@ -143,6 +143,9 @@
 2026-01-25 H
 2026-01-26 H # schon viel Slush Eis drauf
 
-2026-01-31 H # Feld vom Montag, wäre gestern wohl auch gegangen
+2026-01-30 H # nicht tatsächlich gespielt, wäre aber gegangen
+2026-01-31 H # Feld vom Montag
 2026-02-01 H
+2026-02-02 H
+2026-02-03 H # ohne mich
 
